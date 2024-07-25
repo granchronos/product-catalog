@@ -1,0 +1,17 @@
+.products-container {
+    height: 100vh;
+    width: 100%;
+    max-width: 600px;
+}
+
+mat-list-item {
+    width: 100%;
+}
+
+.products-container>div {
+    margin-bottom: 20px;
+}
+
+.products-container>div:last-child {
+    margin-bottom: 0;
+}

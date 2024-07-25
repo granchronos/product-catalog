@@ -1,14 +1,18 @@
-<h2>Login</h2>
-<form>
-  <div>
-    <label for="username">Username: </label>
-    <input type="text" id="username" name="username" [(ngModel)]="username">
-  </div>
-  <br>
-  <div>
-    <label for="password">Password: </label>
-    <input type="password" id="password" name="password" [(ngModel)]="password">
-  </div>
-  <br>
-  <button type="submit" (click)="login()">Login</button>
-</form>
+<div fxLayout="column" fxLayoutAlign="center center" class="login-container">
+  <h2>Login</h2>
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

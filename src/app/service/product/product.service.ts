@@ -1,20 +1,27 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../../model/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
+  private products: Product[] = [];
 
-  private products = [
-    { id: 1, name: 'Phone', price: 1000 },
-    { id: 2, name: 'Laptop', price: 3000 },
-    { id: 3, name: 'Mouse', price: 100 },
-    { id: 4, name: 'Keyboard', price: 500 }
-  ]
+  constructor() {
+    this.initializeProducts();
+  }
 
-  getProducts() {
+  private initializeProducts(): void {
+    this.products = [
+      new Product(1, 'Product 1', 10.99),
+      new Product(2, 'Product 2', 20.99),
+      new Product(3, 'Product 3', 30.99),
+      new Product(4, 'Product 4', 40.99)
+    ];
+  }
+
+  getProducts(): Product[] {
     return this.products;
   }
 
